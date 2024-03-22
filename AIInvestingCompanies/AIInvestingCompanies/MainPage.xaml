@@ -70,7 +70,7 @@
                 <chart:ColumnSeries.DataLabelSettings>
                     <chart:CartesianDataLabelSettings LabelPlacement="Outer" UseSeriesPalette="False">
                         <chart:CartesianDataLabelSettings.LabelStyle>
-                            <chart:ChartDataLabelStyle LabelFormat="#.#" FontSize="13"/>
+                            <chart:ChartDataLabelStyle LabelFormat="#.#" FontSize="13" TextColor="Black"/>
                         </chart:CartesianDataLabelSettings.LabelStyle>
                     </chart:CartesianDataLabelSettings>
                 </chart:ColumnSeries.DataLabelSettings>
