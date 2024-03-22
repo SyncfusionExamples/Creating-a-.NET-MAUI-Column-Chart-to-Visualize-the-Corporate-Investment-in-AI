@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:model="clr-namespace:AIInvestingCompanies"
+             x:Class="AIInvestingCompanies.MainPage">
+
+    <ContentPage.BindingContext>
+        <model:ArtificialIntelligenceData/>
+    </ContentPage.BindingContext>
+
+    <Border Stroke="#293b0b" Padding="{OnPlatform Default=10, Android=7,iOS=7}" StrokeShape="RoundRectangle 10" Margin="25" StrokeThickness="1.5">
+
+        <chart:SfCartesianChart>
+            <chart:SfCartesianChart.Title>
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Grid.RowSpan="2" Source="technology.png"   Margin="0,-25,0,20" 
+                        HeightRequest="100"
+                        WidthRequest="{OnPlatform Android=40,iOS=40, Default=50}"/>
+
+                    <StackLayout Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" HorizontalOptions="Start" Orientation="Vertical">
+                        <Label Text="Decoding AI Investments: A Closer Look at Company Spending" FontSize="24" FontAttributes="Bold" TextColor="#666666" FontFamily="AntaRegular"/>
+                        <Label Text="Total global corporate investment in artificial intelligence (in billions of U.S. dollars)" FontSize="{OnPlatform Android=14,iOS=14, Default=17}" TextColor="Gray" Margin="0,2,0,0" FontFamily="AntaRegular"/>
+                    
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="15,-15,0,0" >
+                        <Rectangle HeightRequest="15" WidthRequest="40" RadiusX="5" RadiusY="5" Fill="#0DAA97" />
+                        <Label Text="&lt; 50" FontSize="15" Margin="7,13,0,0" />
+                        <Rectangle HeightRequest="15" WidthRequest="40" RadiusX="5" RadiusY="5" Fill="#9455FC" Margin="10,0,0,0" />
+                        <Label Text="&lt; 100" Margin="7,13,0,0" FontSize="15"/>
+                        <Rectangle HeightRequest="15" WidthRequest="40" RadiusX="5" RadiusY="5" Fill="#EA8D03" Margin="10,0,0,0" />
+                        <Label Text="&gt; 100" Margin="7,13,0,0" FontSize="15"/>
+                    </StackLayout>
+                </Grid>
+            </chart:SfCartesianChart.Title>
+
+            <chart:SfCartesianChart.XAxes>
+                <model:CategoryAxisExt IsInversed="True" PlotOffsetStart="40" ShowMajorGridLines="False">
+                    <chart:CategoryAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle StrokeWidth="0"/>
+                    </chart:CategoryAxis.MajorTickStyle>
+                </model:CategoryAxisExt>
+            </chart:SfCartesianChart.XAxes>
+
+            <chart:SfCartesianChart.YAxes>
+                <model:NumericalAxisExt PlotOffsetEnd="60" ShowMajorGridLines="False">
+                    <chart:NumericalAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle StrokeWidth="0"/>
+                    </chart:NumericalAxis.MajorTickStyle>
+                    <chart:NumericalAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle FontSize="1" TextColor="Transparent"/>
+                    </chart:NumericalAxis.LabelStyle>
+                </model:NumericalAxisExt>
+            </chart:SfCartesianChart.YAxes>
+
+
+            <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Year" YBindingPath="Value" CornerRadius="10,10,0,0"
+                    ShowDataLabels="True" PaletteBrushes="{Binding CustomBrushes}">
+                <chart:ColumnSeries.DataLabelSettings>
+                    <chart:CartesianDataLabelSettings LabelPlacement="Outer" UseSeriesPalette="False">
+                        <chart:CartesianDataLabelSettings.LabelStyle>
+                            <chart:ChartDataLabelStyle LabelFormat="#.#" FontSize="13" TextColor="Black"/>
+                        </chart:CartesianDataLabelSettings.LabelStyle>
+                    </chart:CartesianDataLabelSettings>
+                </chart:ColumnSeries.DataLabelSettings>
+            </chart:ColumnSeries>
+
+            <chart:SfCartesianChart.PlotAreaBackgroundView>
+                <AbsoluteLayout>
+                    <Image Source="artificialintelligence.png" 
+                           AbsoluteLayout.LayoutBounds="0.2,0.4,-1,-1"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           HeightRequest="{OnPlatform Android=75,iOS=75, Default=150}"
+                           WidthRequest="{OnPlatform Android=75,iOS=75, Default=150}"/>
+                </AbsoluteLayout>
+            </chart:SfCartesianChart.PlotAreaBackgroundView>
+            
+        </chart:SfCartesianChart>
+    </Border>
+</ContentPage>
