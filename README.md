@@ -19,5 +19,5 @@ In recent times, artificial intelligence (AI) has emerged as a critical area for
 ### Path too long exception:
 If you encounter a path too long exception when building this example project, close Visual Studio and rename the repository to a shorter name before building the project. 
 
-For a step-by-step procedure, refer to the [Companies Investing in AI Blog]().
+For a step-by-step procedure, refer to the [Companies Investing in AI Blog](https://www.syncfusion.com/blogs/post/maui-column-chart-investment-in-ai).
 
